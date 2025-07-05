@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Dashboard Admin</title>
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #e6e6e6;
+        }
+
+        .container {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 25px 0 0 0;
+            background-color: #3678b5;
+            padding: 30px;
+            min-height: calc(100vh - 100px);
+        }
+
+        .header {
+            background: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .header-title {
+            font-weight: bold;
+            color: #012847;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .welcome {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .logout-btn img {
+            height: 40px;
+            transition: transform 0.2s;
+        }
+
+        .logout-btn:hover img {
+            transform: scale(1.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-left: 25%;
+            width: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+            grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0;
+        }
+
+        .card img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #3678b5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2e6394;
+        }
+
+        .icon-placeholder {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-family: Poppins, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../asset/logo_polman.png" alt="Logo Admin" class="logo" />
+            </div>
+            <div class="header-text">
+                <h1 class="header-title">DASHBOARD SISTEM INFORMASI AKUNTANSI</h1>
+                <p class="welcome">Selamat Datang, Admin</p>
+            </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+            <img src="../asset/logout.png" alt="logout" />
+        </button>
+    </div>
+  
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="icon-placeholder">👥</div>
+                <h3>Akun User</h3>
+                <p>Melihat dan mengedit akun-akun user</p>
+                <a href="data_akun_kelola.html"><button class="btn">Selengkapnya</button></a>
+            </div>
+    
+            <div class="card">
+                <div class="icon-placeholder">🤝</div>
+                <h3>Data Transaksi</h3>
+                <p>Riwayat transaksi dari perusahaan</p>
+                <a href="data_akun_transaksi.html"><button class="btn">Selengkapnya</button></a>
+            </div>
+    
+            <div class="card">
+                <div class="icon-placeholder">🏢</div>
+                <h3>Data Usaha</h3>
+                <p>Semua daftar usaha yang terdaftar</p>
+                <a href="data_akun_usaha.html"><button class="btn">Selengkapnya</button></a>
+            </div>
+    
+            <div class="card">
+                <div class="icon-placeholder">📚</div>
+                <h3>Data Jurnal</h3>
+                <p>Semua jurnal yang dimasukkan oleh user</p>
+                <a href="data_akun_jurnal.html"><button class="btn">Selengkapnya</button></a>
+            </div>
+        </div>
+    </div>
+  
+    <script>
+        document
+            .getElementById("logoutBtn")
+            .addEventListener("click", function () {
+                const confirmLogout = confirm("Apakah Anda yakin ingin logout?");
+    
+                if (confirmLogout) {
+                alert("Anda telah logout. Sampai jumpa kembali!");
+                window.location.href = '../index.html';
+                } else {
+                alert("Logout dibatalkan");
+                }
+            });
+    </script>
+</body>
+</html>

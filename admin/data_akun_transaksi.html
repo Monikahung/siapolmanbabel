@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Kelola Data Transaksi Pengguna</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link rel="shortcut icon" href="../asset/icon.png" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;1,300&display=swap");
+        body {
+            font-family: Poppins, sans-serif;
+            background-color: #3678b5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: auto;
+            margin: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .header-title {
+            font-weight: bold;
+            color: #012847;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .header {
+            background: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #012847;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .back-button a:hover {
+            color: #3678b5;
+        }
+        .header-line {
+            width: 100%;
+            height: 15px;
+            background-color: #3678b5;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #f2f2f2;
+        }
+
+        .btn-reset {
+            background: #c7f2a9;
+            border: none;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-reset:hover {
+            background-color: #a8e08a;
+        }
+
+        .btn-hapus {
+            background: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-hapus:hover {
+            background-color: #e63c3c;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .btn-tambah {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            background: #3674b5;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-detail {
+            background-color: #d6eaff;
+            color: #000;
+            border: 1px solid #3678b5;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .btn-tambah:hover {
+            background: #2c5e96;
+        }
+
+        button {
+            font-family: Poppins, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../asset/logo_polman.png" alt="Logo Admin" class="logo" />
+            </div>
+            <div class="header-text">
+                <h1 class="header-title">Daftar Transaksi Pengguna</h1>
+            </div>
+        </div>
+        <div class="back-button">
+            <a href="beranda.html">Kembali</a>
+        </div>
+    </div>
+  
+    <div class="header-line"></div>
+  
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1.</td>
+                <td>Asep</td>
+                <td>Asep@3</td>
+                <td>
+                    <button class="btn-detail">Lihat Transaksi</button>
+                </td>
+                </tr>
+                <tr>
+                <td>2.</td>
+                <td>Bakti</td>
+                <td>BaktiBawal</td>
+                <td>
+                    <button class="btn-detail">Lihat Transaksi</button>
+                </td>
+                </tr>
+                <tr>
+                <td>3.</td>
+                <td>Jeki</td>
+                <td>Jekisate</td>
+                <td>
+                    <button class="btn-detail">Lihat Transaksi</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <script>
+        document.querySelectorAll(".btn-detail").forEach(function (button) {
+            button.addEventListener("click", function () {
+                window.location.href = "data_transaksi.html";
+            });
+        });
+    </script>
+</body>
+</html>

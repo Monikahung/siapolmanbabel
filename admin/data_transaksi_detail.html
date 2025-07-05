@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Detail Transaksi Bisnis</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link rel="shortcut icon" href="../asset/icon.png" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+        body {
+            font-family: Poppins;
+            background-color: #3678b5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: auto;
+            margin: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .header-title {
+            font-weight: bold;
+            color: #012847;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .header {
+            background: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-bottom-left-radius: 30px; /* Sudut lengkung kiri atas */
+            border-bottom-right-radius: 30px; /* Sudut lengkung kanan atas */
+        }
+
+        .back-button a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #012847;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .content {
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: #3678b5;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .btn-selanjutnya {
+            background-color: #3674b5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            float: right;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td:nth-child(1),
+        td:nth-child(2) {
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .btn-footer {
+            display: block;
+            margin: 20px auto 0 auto;
+            background-color: #99c2ff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .pagination span,
+        .pagination button {
+            margin-left: 5px;
+            background: #eee;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button {
+            font-family: Poppins, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../asset/logo_polman.png" alt="Logo Admin" class="logo" />
+            </div>
+            <div class="header-text">
+                <h1 class="header-title">Detail Transaksi</h1>
+            </div>
+        </div>
+        <div class="back-button">
+            <a href="data_transaksi.html">Kembali</a>
+        </div>
+    </div>
+  
+    <div class="container">
+        <h2>Transaksi Bisnis</h2>
+        <button class="tag">PT Bisnis Digital</button>
+        <button class="tag">Tahun 2025</button>
+        <button class="tag">By Asep</button>
+  
+        <table>
+            <thead>
+                <tr>
+                <th>No.</th>
+                <th>Bulan</th>
+                <th>Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>Januari</td>
+                    <td>
+                        Pemilik menginvestasikan dana dalam perusahaan sebagai modal awal
+                        sebesar Rp 50.000.000,-
+                    </td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Februari</td>
+                    <td>
+                        Pemilik menginvestasikan dana dalam perusahaan sebagai modal awal
+                        sebesar Rp 50.000.000,-
+                    </td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Maret</td>
+                    <td>
+                        Pemilik menginvestasikan dana dalam perusahaan sebagai modal awal
+                        sebesar Rp 50.000.000,-
+                    </td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>April</td>
+                    <td>
+                        Pemilik menginvestasikan dana dalam perusahaan sebagai modal awal
+                        sebesar Rp 50.000.000,-
+                    </td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Mei</td>
+                    <td>
+                        Pemilik menginvestasikan dana dalam perusahaan sebagai modal awal
+                        sebesar Rp 50.000.000,-
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+  
+        <div class="footer">Showing 1 to 4 of 4 entries</div>
+  
+        <div class="pagination">
+            <span>&laquo;</span>
+            <button>1</button>
+            <span>&raquo;</span>
+        </div>
+    </div>
+</body>
+</html>

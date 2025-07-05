@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Form Reset Password</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link rel="shortcut icon" href="../asset/icon.png" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;1,300&display=swap");
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #3678b5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: auto;
+            margin: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .header-title {
+            font-weight: bold;
+            color: #012847;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .header {
+            background: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .form-box {
+            margin-top: 20px;
+            padding: 30px 40px;
+            background: #f9f9f9;
+            position: relative;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #eee;
+            font-size: 14px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn {
+            width: 48%;
+            padding: 12px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3674b5;
+            color: white;
+        }
+
+        .readonly-text {
+            margin: 0;
+            padding: 12px 0; /* Sama tinggi dengan input lainnya */
+            font-size: 14px;
+            color: #000000;
+            border-bottom: 1px solid #ccc; /* Tambahkan garis bawah biar tetap sejajar dengan input lain */
+        }
+
+        .readonly-display:disabled {
+            box-shadow: none;
+        }
+
+        button {
+            font-family: Poppins, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../asset/logo_polman.png" alt="Logo Admin" class="logo" />
+            </div>
+            <div class="header-text">
+                <h1 class="header-title">Reset Akun User</h1>
+            </div>
+        </div>
+    </div>
+  
+    <div class="container">
+        <div class="form-box">
+            <h2>Form Reset Password</h2>
+    
+            <form id="formResetPassword">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <p class="readonly-text">Asep</p>
+                </div>
+    
+                <div class="form-group">
+                    <label>Username</label>
+                    <p class="readonly-text">Asep@3</p>
+                </div>
+    
+                <div class="form-group">
+                    <label>Password Baru</label>
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Masukkan password baru"
+                        required
+                    />
+                </div>
+    
+                <div class="form-actions">
+                    <button type="button" id="btnKembali" class="btn">Kembali</button>
+                    <button type="submit" class="btn" id="btnKonfirmasi">
+                        Konfirmasi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+    <script>
+        document
+            .getElementById("formResetPassword")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+    
+                const newPassword = document.getElementById("newPassword").value;
+    
+                if (newPassword) {
+                const konfirmasi = confirm(
+                    "Apakah Anda yakin ingin mereset password?"
+                );
+    
+                if (konfirmasi) {
+                    alert("Password berhasil direset!");
+                    // Kode untuk reset password bisa ditambahkan disini
+                    // this.submit();
+                    window.location.href = "beranda.html"; // Redirect ke beranda setelah alert
+                }
+                } else {
+                alert("Harap masukkan password baru!");
+                }
+            });
+  
+        document
+            .getElementById("btnKembali")
+            .addEventListener("click", function () {
+                window.location.href = "data_akun_kelola.html";
+            });
+    </script>
+</body>
+</html>

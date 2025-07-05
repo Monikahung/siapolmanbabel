@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Data Usaha</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <link rel="shortcut icon" href="../asset/icon.png" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;1,300&display=swap");
+        body {
+            font-family: Poppins;
+            background-color: #3678b5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: auto;
+            margin: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #012847;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        .header-text {
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .header-title {
+            font-weight: bold;
+            color: #012847;
+            font-size: 24px;
+        }
+
+        .header {
+            background: #e6e6e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-bottom-left-radius: 30px; /* Sudut lengkung kiri atas */
+            border-bottom-right-radius: 30px; /* Sudut lengkung kanan atas */
+        }
+
+        .content {
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .circle {
+            float: right;
+            background: #3678b5;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .btn-detail {
+            background-color: #d6eaff;
+            color: #000;
+            border: 1px solid #3678b5;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .footer-info {
+            font-size: 11px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .pagination span,
+        .pagination button {
+            margin-left: 5px;
+            background: #eee;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button {
+            font-family: Poppins, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../asset/logo_polman.png" alt="Logo Admin" class="logo" />
+            </div>
+            <div class="header-text">
+                <h1 class="header-title">Data Usaha</h1>
+                <p class="welcome">Pengguna by Asep</p>
+            </div>
+        </div>
+        <div class="back-button">
+            <a href="data_akun_usaha.html">Kembali</a>
+        </div>
+    </div>
+  
+    <div class="container">
+        <h2>Daftar Usaha <span class="circle">5</span></h2>
+  
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Usaha</th>
+                    <th>Jumlah Bulan Transaksi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>PT Bisnis Digital</td>
+                    <td>4</td>
+                    <td><button class="btn-detail">Detail</button></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>PT Cinta Sejati</td>
+                    <td>4</td>
+                    <td><button class="btn-detail">Detail</button></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>CV Doa Restu</td>
+                    <td>4</td>
+                    <td><button class="btn-detail">Detail</button></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>PD Sudah Gila</td>
+                    <td>4</td>
+                    <td><button class="btn-detail">Detail</button></td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>CV Lamaran RSJ</td>
+                    <td>4</td>
+                    <td><button class="btn-detail">Detail</button></td>
+                </tr>
+            </tbody>
+        </table>
+  
+        <div class="footer-info">Showing 1 to 4 of 4 entries</div>
+  
+        <div class="pagination">
+            <span>&laquo;</span>
+            <button>1</button>
+            <span>&raquo;</span>
+        </div>
+      </div>
+  <script>
+        document.querySelectorAll('.btn-detail').forEach(function(button) {
+            button.addEventListener('click', function() {
+                window.location.href = 'data_usaha_detail.html';
+            });
+        });
+  </script>
+</body>
+</html>
