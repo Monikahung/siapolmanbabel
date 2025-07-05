@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Pilih Usaha</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10vh;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 650px;
+            height: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .form-card h2 {
+            margin-bottom: 40px;
+            color: var(--dark-blue);
+        }
+
+        .form-card label {
+            display: block;
+            text-align: left;
+            margin-top: 30;
+            font-weight: bold;
+        }
+
+        .form-card select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background-color: #3674B5;
+            color: white;
+            border: none;
+            padding: 12px 70px;
+            margin-top: 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="beranda-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2">
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="home.html"><button class="nav-btn">Beranda</button></a>
+                <a href="business.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="business_transactions.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="general_ledger.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="logout.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content form-container">
+            <div class="form-card">
+                <h2>Formulir Pilih Usaha</h2>
+                <form id="editForm" action="edit_transaksi.html" method="get">
+                <label for="usaha">Pilih Nama Usaha</label>
+                <select id="usaha" name="id_usaha" required>
+                    <option value="">Pilih Nama Usaha Yang Akan Diubah</option>
+                </select>
+                <button type="submit" class="btn-submit">Selanjutnya</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dataUsaha = [
+            { id: 1, nama: "PT BISNIS DIGITAL" },
+            { id: 2, nama: "PT TEMBAKAU PUTIH" },
+            { id: 3, nama: "PT VELG MERBABU" }
+        ];
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const select = document.getElementById("usaha");
+            dataUsaha.forEach(usaha => {
+                const option = document.createElement("option");
+                option.value = usaha.id;
+                option.textContent = usaha.nama;
+                select.appendChild(option);
+            });
+        });
+    </script>
+</body>
+</html>

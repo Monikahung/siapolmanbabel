@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Tambah Jumlah Transaksi Usaha</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+</head>
+<body id="business-page">
+    <div class="form-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2" />
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content" id="form-usaha">
+            <div class="formulir-usaha">
+                <h3 id="title-1">Formulir Jumlah Transaksi Tahun 2024</h3>
+                <h5>PT Bisnis Digital</h5>
+                <form id="monthForm">
+                    <div id="form-content">
+                        <!-- ISI FORM -->
+                    </div>
+                    <input type="submit" id="submitBtn" value="Tahun Selanjutnya" />
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const formTitle = document.getElementById("title-1");
+        const formContent = document.getElementById("form-content");
+        const form = document.getElementById("monthForm");
+        const submitBtn = document.getElementById("submitBtn");
+    
+        let tahap = 1; // 1 = Tahun 2024, 2 = Tahun 2025
+    
+        // Render isi form
+        function renderFormTahun(tahun) {
+            if (tahun === 2024) {
+                formTitle.innerText = "Formulir Jumlah Transaksi Tahun 2024";
+                formContent.innerHTML = `
+                <table>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> Oktober 2024</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[0]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> November 2024</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[1]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> Desember 2024</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[2]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                </table>
+                `;
+                submitBtn.value = "Tahun Selanjutnya";
+            } else if (tahun === 2025) {
+                formTitle.innerText = "Formulir Jumlah Transaksi Tahun 2025";
+                formContent.innerHTML = `
+                <table>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> Januari 2025</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[3]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> Februari 2025</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[4]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                    <tr><td class="keterangan"><i class="fa-solid fa-calendar-week"></i> Maret 2025</td><td class="titik-dua">:</td><td><input type="number" name="jumlah[5]" required min="0" placeholder="Masukkan Jumlah Transaksi"/></td></tr>
+                </table>
+                `;
+                submitBtn.value = "Selanjutnya";
+            }
+        }
+    
+        // Inisialisasi form pertama (2024)
+        renderFormTahun(2024);
+    
+        // Handler submit
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (tahap === 1) {
+                tahap = 2;
+                renderFormTahun(2025);
+            } else {
+                window.location.href = "tambah_transaksi.html";
+            }
+        });
+    </script>
+</body>
+</html>

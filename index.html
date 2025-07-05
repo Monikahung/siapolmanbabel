@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Sistem Informasi Akuntansi Polmanbabel</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="asset/icon.png">
+</head>
+<body class="login-page">
+    <div class="container">
+        <div class="left">
+            <h1 id="judul_login">Belajar Akuntansi<br>Lebih Mudah Bersama<br>SIAPOLMAN</h1>
+            <img id="img_login" src="asset/img_login.png" alt="Ilustrasi Login">
+        </div>
+        <div class="right">
+            <div class="logo-wrapper">
+                <img src="asset/logo_polman.png" alt="Logo SIAPOLMAN" class="logo-img">
+                <span class="logo-text">SIAPOLMAN</span>
+            </div>
+            <h2 id="selamat_datang">Selamat Datang</h2>
+            <p id="info_login">Masuk dengan akun Anda</p>
+            <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="submit" id="btn_login" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            // Dummy validation (hanya untuk simulasi)
+            if (username === "useruser" && password === "user1234") {
+                alert("Login berhasil! Selamat datang user di SIAPOLMAN!");
+                window.location.href = "user/beranda.html";
+            } else if (username === "adminadmin" && password === "admin1234") {
+                alert("Login berhasil! Selamat datang admin di SIAPOLMAN!");
+                window.location.href = "admin/beranda.html";
+            } else {
+                alert("Username atau password salah!");
+            }
+        });
+    </script>
+</body>
+</html>

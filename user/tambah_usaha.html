@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Tambah Nama Usaha</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+</head>
+<body id="business-page">
+    <div class="form-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2" />
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content" id="form-usaha">
+            <div class="formulir-usaha">
+                <h3>Formulir Tambah Nama Usaha</h3>
+                <form id="loginForm">
+                    <p>Nama Usaha</p>
+                    <input type="text" name="nama_usaha" placeholder="Masukkan Nama Usaha" required />
+            
+                    <p>Bulan Pertama Transaksi</p>
+                    <div class="form-group">
+                        <select name="bulan_awal" id="bulan_awal" required>
+                            <option value="">--- Pilih Bulan ---</option>
+                            <option value="januari">Januari</option>
+                            <option value="februari">Februari</option>
+                            <option value="maret">Maret</option>
+                            <option value="april">April</option>
+                            <option value="mei">Mei</option>
+                            <option value="juni">Juni</option>
+                            <option value="juli">Juli</option>
+                            <option value="agustus">Agustus</option>
+                            <option value="september">September</option>
+                            <option value="oktober">Oktober</option>
+                            <option value="november">November</option>
+                            <option value="desember">Desember</option>
+                        </select>
+                        <input type="number" name="tahun_awal" placeholder="Masukkan Tahun Awal" id="tahun_awal" required />
+                    </div>
+            
+                    <p>Bulan Terakhir Transaksi</p>
+                    <div class="form-group">
+                        <select name="bulan_akhir" id="bulan_akhir" required>
+                            <option value="">--- Pilih Bulan ---</option>
+                            <option value="januari">Januari</option>
+                            <option value="februari">Februari</option>
+                            <option value="maret">Maret</option>
+                            <option value="april">April</option>
+                            <option value="mei">Mei</option>
+                            <option value="juni">Juni</option>
+                            <option value="juli">Juli</option>
+                            <option value="agustus">Agustus</option>
+                            <option value="september">September</option>
+                            <option value="oktober">Oktober</option>
+                            <option value="november">November</option>
+                            <option value="desember">Desember</option>
+                        </select>
+                        <input type="number" name="tahun_akhir" placeholder="Masukkan Tahun Akhir" id="tahun_akhir" required />
+                    </div>
+            
+                    <input type="submit" id="btn_next_1" value="Selanjutnya" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            const bulanAwal = document.getElementById("bulan_awal").value;
+            const bulanAkhir = document.getElementById("bulan_akhir").value;
+            const tahunAwal = parseInt(document.getElementById("tahun_awal").value);
+            const tahunAkhir = parseInt(document.getElementById("tahun_akhir").value);
+        
+            if (tahunAwal > tahunAkhir || (tahunAwal === tahunAkhir && bulanToNumber(bulanAwal) > bulanToNumber(bulanAkhir))) {
+                alert("Bulan dan tahun akhir transaksi tidak boleh lebih awal dari bulan dan tahun awal!");
+                return;
+            }
+        
+            // Simulasi redirect ke halaman tambah jumlah transaksi
+            window.location.href = "tambah_jumlah_transaksi.html";
+        
+            function bulanToNumber(bulan) {
+                const bulanMap = {
+                "januari": 1, "februari": 2, "maret": 3, "april": 4,
+                "mei": 5, "juni": 6, "juli": 7, "agustus": 8,
+                "september": 9, "oktober": 10, "november": 11, "desember": 12
+                };
+                return bulanMap[bulan.toLowerCase()];
+            }
+        });
+    </script>
+</body>
+</html>

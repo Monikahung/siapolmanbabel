@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Edit Transaksi Bisnis</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+
+</head>
+<body id="business-page">
+    <div class="form-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2">
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content" id="form-transaksi">
+            <div class="formulir-usaha">
+                <h3 id="title-1">Formulir Ubah Transaksi Bisnis Tahun 2024</h3>
+                <h5>PT Bisnis Digital</h5>
+        
+                <form id="transactionsForm">
+                    <div id="form-content">
+                        <!-- ISI FORM DIISI DENGAN JS -->
+                    </div>
+
+                    <input type="submit" id="submitBtn" value="Tahun Selanjutnya" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const formContent = document.getElementById("form-content");
+        const form = document.getElementById("transactionsForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const formTitle = document.getElementById("title-1");
+    
+        let tahap = 1; // 1 = Januari-Februari, 2 = Maret-April
+    
+        // fungsi render berdasarkan tahap
+        function renderTransaksi(tahap) {
+            if (tahap === 1) {
+                formTitle.innerText = "Formulir Ubah Transaksi Bisnis Tahun 2024";
+                formContent.innerHTML = `
+                    <p><i class="fa-solid fa-calendar-week"></i> Oktober 2024</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[0][]" value="1 Oktober" placeholder="Isi Tanggal" data-bulan="oktober" data-tahun="2024" required></td>
+                            <td><input type="text" name="keterangan[0][]" value="Pembelian peralatan kantor sebesar 17 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td><input type="text" name="tanggal[0][]" value="15 Oktober" placeholder="Isi Tanggal" data-bulan="oktober" data-tahun="2024" required></td>
+                            <td><input type="text" name="keterangan[0][]" value="Penjualan barang produksi sebesar 2 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+
+                    <p><i class="fa-solid fa-calendar-week"></i> November 2024</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[1][]" value="7 November" placeholder="Isi Tanggal" data-bulan="november" data-tahun="2024" required></td>
+                            <td><input type="text" name="keterangan[1][]" value="Pendapatan usaha sebeser 5 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+
+                    <p><i class="fa-solid fa-calendar-week"></i> Desember 2024</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[2][]" value="20 Desember" placeholder="Isi Tanggal" data-bulan="desember" data-tahun="2024" required></td>
+                            <td><input type="text" name="keterangan[2][]" value="Bayar gaji karyawan sebesar 5 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+                `;
+                submitBtn.value = "Tahun Selanjutnya";
+            } else if (tahap === 2) {
+                formTitle.innerText = "Formulir Ubah Transaksi Bisnis Tahun 2025";
+                formContent.innerHTML = `
+                    <p><i class="fa-solid fa-calendar-week"></i> Januari 2025</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[3][]" value="1 Januari" placeholder="Isi Tanggal" data-bulan="januari" data-tahun="2025" required></td>
+                            <td><input type="text" name="keterangan[3][]" value="Kas sebesar 10 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td><input type="text" name="tanggal[3][]" value="15 Januari" placeholder="Isi Tanggal" data-bulan="januari" data-tahun="2025" required></td>
+                            <td><input type="text" name="keterangan[3][]" value="Sewa tempat sebesar 7 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+
+                    <p><i class="fa-solid fa-calendar-week"></i> Februari 2025</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[4][]" value="7 Februari" placeholder="Isi Tanggal" data-bulan="februari" data-tahun="2025" required></td>
+                            <td><input type="text" name="keterangan[4][]" value="Pengeluaran kantor sebesar 2,5 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+
+                    <p><i class="fa-solid fa-calendar-week"></i> Maret 2025</p>
+                    <table>
+                        <tr><td>No.</td><td class="date-transactions">Tanggal</td><td>Keterangan</td></tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><input type="text" name="tanggal[5][]" value="23 Maret" placeholder="Isi Tanggal" data-bulan="maret" data-tahun="2025" required></td>
+                            <td><input type="text" name="keterangan[5][]" value="Asuransi direktur sebesar 8 juta" placeholder="Isi Keterangan Transaksi" required></td>
+                        </tr>
+                    </table>
+                `;
+                submitBtn.value = "Selanjutnya";
+            }
+            setTimeout(bindTanggalValidation, 100);
+        }
+
+        function bindTanggalValidation() {
+            document.querySelectorAll('input[name^="tanggal["]').forEach(input => {
+                input.addEventListener('blur', function () {
+                    const value = this.value.trim().toLowerCase();
+                    const bulanExpected = this.dataset.bulan;
+                    const tahun = parseInt(this.dataset.tahun);
+                    const monthNames = [
+                        'januari', 'februari', 'maret', 'april', 'mei', 'juni',
+                        'juli', 'agustus', 'september', 'oktober', 'november', 'desember'
+                    ];
+
+                    this.setCustomValidity("");
+
+                    if (value === "") return;
+
+                    const match = value.match(/^(\d{1,2})\s+([a-zA-Z]+)$/);
+                    if (!match) {
+                        this.setCustomValidity('Format salah! Contoh: "1 Januari"');
+                        this.reportValidity();
+                        return;
+                    }
+
+                    const hari = parseInt(match[1]);
+                    const bulanInput = match[2].toLowerCase();
+
+                    if (bulanInput !== bulanExpected) {
+                        this.setCustomValidity(`Bulan harus ${capitalize(bulanExpected)}.`);
+                        this.reportValidity();
+                        return;
+                    }
+
+                    const indexBulan = monthNames.indexOf(bulanExpected);
+                    const maxHari = new Date(tahun, indexBulan + 1, 0).getDate();
+
+                    if (hari < 1 || hari > maxHari) {
+                        this.setCustomValidity(`${capitalize(bulanExpected)} ${tahun} hanya sampai tanggal ${maxHari}!`);
+                        this.reportValidity();
+                    }
+
+                    function capitalize(str) {
+                        return str.charAt(0).toUpperCase() + str.slice(1);
+                    }
+                });
+            });
+        }
+
+        // Inisialisasi pertama
+        renderTransaksi(tahap);
+
+        // Handler submit
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (tahap === 1) {
+                tahap = 2;
+                renderTransaksi(tahap);
+            } else {
+                window.location.href = "edit_jurnal.html";
+            }
+        });
+    </script>
+</body>
+</html>

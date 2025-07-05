@@ -1,0 +1,942 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+    --background: #3674B5;
+    --white: #fff;
+    --black: #000;
+    --gray: #D9D9D9;
+    --light-blue: #AECEE8;
+    --dark-blue: #123458;
+    --gradient: linear-gradient(135deg, 
+    #3674B5 6%, 
+    #3876B6 16%, 
+    #3A77B7 24%, 
+    #3C79B8 32%, 
+    #3E7AB8 41%, 
+    #4881BC 48%, 
+    #5289C1 56%, 
+    #6698C9 65%, 
+    #7AA7D2 74%, 
+    #93BADC 83%, 
+    #b0c0d6 93%);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+}
+
+/* ========= Login ========= */
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background-color: var(--white);
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+
+body.login-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient);
+    border-radius: 30px;
+}
+
+.right {
+    flex: 1;
+    padding: 20px 0 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#judul_login {
+    color: var(--white);
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#img_login {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+#selamat_datang {
+    color: var(--black);
+    font-weight: 700;
+    text-align: center;
+    font-size: 28px;
+}
+
+#info_login {
+    color: var(--black);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--gray);
+}
+
+#btn_login {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--background);
+    border: none;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#btn_login:hover {
+    background-color: var(--dark-blue);
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    width: fit-content;
+    margin: 0 auto 20px;
+}
+
+.logo-img {
+    height: 30px;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+    font-family: sans-serif;
+}
+
+/* ========= Home ========= */
+#business-page {
+    background-color: var(--background);
+}
+
+.beranda-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.topbar {
+    background-color: var(--white);
+}
+
+.logo-img-2 {
+    height: 40px;
+}
+
+.logo-wrapper-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0 10px 0;
+    width: fit-content;
+    margin: 0 auto 15px;
+}
+
+.logo-wrapper-2 .logo-text {
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+.nav-button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 60px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    width: 175px;
+    height: 45px;
+    left: 0px;
+    top: 0px;
+    border-radius: 10px;
+    background-color: var(--light-blue);
+    border-color: var(--dark-blue);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.nav-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+#profile, #logout {
+    height: 55px;
+    width: 55px;
+    border-radius: 100%;
+}
+
+#profile {
+    margin-right: 50px;
+}
+
+#logout {
+    margin-left: 50px;
+}
+
+.content {
+    padding: 25px;
+    color: var(--black);
+    flex: 1;
+}
+
+.usaha-section {
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    gap: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.usaha-section:hover {
+    border: 3px solid var(--dark-blue);
+}
+
+.usaha-left img {
+    width: 385px;
+}
+
+.usaha-right {
+    flex: 3;
+}
+
+.usaha-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.usaha-header h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    color: var(--dark-blue);
+    font-size: 22px;
+}
+
+.usaha-count {
+    background-color: var(--background);
+    color: var(--white);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+}
+
+.btn-selengkapnya {
+    margin-left: auto;
+    padding: 15px 30px;
+    background-color: var(--background);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-selengkapnya:hover {
+    background-color: var(--dark-blue);
+}
+
+.usaha-list {
+    margin-top: 25px;
+}
+  
+.usaha-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background-color: var(--gray);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#usaha-last {
+    margin-bottom: 0;
+}
+
+#usaha-nama {
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--black);
+}
+
+#usaha-aksi {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-transaksi, .btn-jurnal {
+    border: 1px solid var(--dark-blue);
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btn-transaksi:hover, .btn-jurnal:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.fitur-section {
+    display: flex;
+    gap: 20px;
+    padding: 0 0 20px 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+  
+.fitur-card {
+    flex: 1 1 calc(50% - 20px);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.fitur-icon {
+    width: 175px;
+    height: auto;
+    margin-right: 20px;
+}
+  
+.fitur-content {
+    flex: 1;
+}
+  
+.fitur-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+  
+.fitur-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.fitur-header a {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+  
+.fitur-count {
+    background-color: var(--background);
+    color: var(--white);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+  
+.btn-tambah {
+    background-color: var(--background);
+}
+
+.btn-tambah:hover {
+    background-color: var(--dark-blue);
+}
+  
+.fitur-deskripsi {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--black);
+    text-align: justify;
+}
+
+.copyright {
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    background: var(--white);
+}
+
+/* ========= Business ========= */
+.table-business-section {
+    padding: 30px;
+    background: var(--white);
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.records {
+    box-shadow: var(--box-shadow);
+    background: var(--bg-color);
+    border-radius: 3px;
+}
+
+.record-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#myTable {
+    border: 1px solid var(--dark-blue);
+}
+
+table thead tr {
+    border: 1px solid var(--dark-blue);
+}
+
+table thead th {
+    border: 1px solid var(--dark-blue);
+}
+
+table tbody td {
+    border: 1px solid var(--dark-blue);
+}
+
+.option a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.option a .nav-btn {
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.option a .nav-btn:hover {
+    color: var(--white);
+    background-color: var(--dark-blue);
+}
+
+#transaksi-bisnis {
+    margin-right: 10px;
+}
+
+/* ========= Business Transactions & General Ledger ========= */
+.active>.page-link, .page-link.active {
+    background-color: var(--light-blue) !important;
+    color: var(--dark-blue) !important;
+    border-color: var(--dark-blue) !important;
+}
+
+.dt-length select {
+    border-color: var(--dark-blue) !important;
+}
+
+.dt-search input {
+    border-color: var(--dark-blue) !important;
+}
+
+.page-link {
+    color: var(--dark-blue) !important;
+    border-color: var(--dark-blue) !important;
+}
+
+table.dataTable thead th, .tahun-table thead th {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.dataTablePerYear tbody td {
+    vertical-align: middle !important;
+    text-align: left !important;
+}
+
+.dataTablePerYear tbody td:first-child {
+    vertical-align: middle !important;
+    text-align: center !important;
+    width: 10%;
+}
+
+.dataTablePerYear tbody td:nth-child(2) {
+    width: 20%;
+}
+
+.dataTablePerYear tbody td:last-child {
+    width: 70%;
+}
+
+.tahun-table tbody td:first-child {
+    width: 20%;
+}
+
+.tahun-table tbody td:nth-child(2) {
+    width: 15%;
+}
+
+.tahun-table tbody td:nth-child(3) {
+    width: 5%;
+}
+
+.tahun-table tbody td:nth-child(4) {
+    width: 20%;
+}
+
+.tahun-table tbody td:last-child {
+    width: 20%;
+}
+
+.dataTablePerYear tbody .number, .dataTablePerYear tbody .date {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.dataTablePerYear tbody #keterangan-transaksi {
+    vertical-align: middle !important;
+    text-align: justify !important;
+}
+
+.tahun-table tbody tr td {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.tahun-table tbody tr .akun {
+    vertical-align: middle !important;
+    text-align: justify !important;
+}
+
+.tahun-table {
+    margin-bottom: 0 !important;
+}
+
+.tahun-navigation {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.transaksi-subjudul h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.transaksi-container, .jurnal-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.transaksi-left, .jurnal-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+  
+.transaksi-left h2, .jurnal-left h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-right: 20px;
+}
+  
+.nama-usaha {
+    background-color: var(--background);
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#tampilan-nama-usaha {
+    background-color: transparent;
+    color: var(--dark-blue);
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+.tahun-navigation #prevYear, .tahun-navigation #nextYear, .tahun-navigation button {
+    background-color: var(--background) !important;
+    color: var(--white) !important;
+    padding: 10px 15px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.tahun-navigation #prevYear, .tahun-navigation button:nth-child(3) {
+    margin-right: 10px;
+}
+
+.tahun-navigation span {
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+.tahun-navigation span:nth-child(2) {
+    margin-right: 50px;
+}
+  
+.transaksi-right, .jurnal-right {
+    display: flex;
+    gap: 15px;
+}
+  
+.aksi-btn {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 200px;
+    cursor: pointer;
+}
+  
+.aksi-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.jurnal-right .aksi-btn {
+    background-color: var(--background);
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 200px;
+    cursor: pointer;
+}
+
+/* ========= Add Business ========= */
+.formulir-usaha {
+    padding: 30px;
+    background: var(--white);
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formulir-usaha h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formulir-usaha #loginForm input[type="number"], .formulir-usaha #loginForm input[type="text"] {
+    margin-bottom: 20px;
+}
+
+#input-tahun {
+    width: 40%;
+}
+
+.formulir-usaha #loginForm p {
+    font-size: 16px;
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group select, .form-group input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--gray);
+}
+
+#form-usaha {
+    margin: 0 25%;
+}
+
+#btn_next_1 {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--background);
+    border: none;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#btn_next_1:hover {
+    background-color: var(--dark-blue);
+}
+
+select {
+    width: 50%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--gray);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none;
+    margin: 10px 0 20px 0;
+}
+
+select:focus {
+    border-color: var(--background);
+    outline: none;
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+}
+
+/* ========= Add Business Transactions ========= */
+#monthForm table, #transactionsForm table {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#monthForm table {
+    text-align: left !important;
+}
+
+#monthForm {
+    margin-top: 25px;
+}
+
+#monthForm table, #monthForm tr, #monthForm td {
+    border: none;
+}
+
+#monthForm table tr .titik-dua {
+    width: 50px;
+    text-align: center;
+}
+
+#monthForm table tr .keterangan {
+    width: 175px;
+}
+
+#transactionsForm input[type=submit], #monthForm input[type=submit], #generalForm input[type=submit] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--background);
+    border: none;
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#transactionsForm input[type=submit]:hover, #monthForm input[type=submit]:hover, #generalForm input[type=submit]:hover {
+    background-color: var(--dark-blue);
+}
+
+#transactionsForm input[type=submit] {
+    margin-top: 15px;
+}
+
+.formulir-usaha h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    text-align: center;
+}
+
+#title-1 {
+    margin-bottom: 0;
+}
+
+#form-transaksi {
+    margin: 0 10%;
+}
+
+.formulir-usaha #transactionsForm p {
+    font-size: 18px;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#transactionsForm table {
+    border-collapse: collapse;
+    background-color: var(--gray);
+}
+
+#transactionsForm table tr td {
+    padding: 5px;
+    font-size: 14px;
+}
+
+#title-table {
+    font-weight: 600;
+    text-align: center;
+}
+
+#transactionsForm p, #generalForm h4:first-child{
+    margin-top: 25px;
+}
+
+.number-table {
+    text-align: center;
+}
+
+.date-transactions {
+    width: 25%;
+}
+
+.date-transactions input, .note-transactions input {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.date-transactions input::placeholder, .note-transactions input::placeholder {
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ========= Add General Ledger ========= */
+#generalForm table {
+    width: 100%;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    background-color: var(--gray);
+}
+
+.formulir-usaha #transactionsForm p, #generalForm h4 {
+    font-size: 18px;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#transactionsForm table tr td {
+    padding: 5px;
+    font-size: 14px;
+}
+
+#title-table {
+    font-weight: 600;
+    text-align: center;
+}
+
+.date-general {
+    text-align: center;
+    width: 15%;
+}
+
+.account-name {
+    width: 20%;
+}
+
+.ref-number {
+    width: 10%;
+}
+
+.account-name input, .ref-number input, .debit-sum input, .kredit-sum input {
+    background-color: transparent;
+    border-color: transparent;
+    text-align: center;
+}
+
+.account-name input::placeholder, .ref-number input::placeholder, .debit-sum input::placeholder, .kredit-sum input::placeholder {
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+}

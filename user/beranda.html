@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Beranda</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+
+    <style>
+        .dual-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .fitur-utama, .daftar-usaha {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+        .fitur-utama {
+            max-width: 300px;
+        }
+        .btn-tambah-akuntansi, .btn-edit-akuntansi {
+            display: block;
+            margin: 10px 0;
+            background: #3674B5;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-tambah-akuntansi:hover, .btn-edit-akuntansi:hover {
+            background: var(--dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="beranda-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2">
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content dual-column">
+            <div class="fitur-utama">
+                <h3 class="fitur-title" style="font-size: 22px; padding-bottom: 20px; color: var(--dark-blue);">Fitur Utama</h3>
+                <p style="font-size: 16px;">Tambahkan Data-data akuntansi yang anda miliki</p>
+                <a href="tambah_usaha.html" class="btn-tambah-akuntansi"><i class="fa-solid fa-plus"></i> Tambah Data Akuntansi</a>
+                <p style="padding-top: 40px;">Edit data-data akuntansi yang sudah ada</p>
+                <a href="pilih_usaha.html" class="btn-edit-akuntansi"><i class="fa-solid fa-pen"></i> Edit Data Akuntansi</a>
+            </div>
+        
+            <div class="daftar-usaha">
+                <div class="usaha-header">
+                    <h2>Daftar Usaha</h2>
+                    <a class="btn-selengkapnya" href="daftar_usaha.html">Selengkapnya <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="usaha-list" id="usaha-list"></div>
+            </div>
+        </div>
+    
+        <div class="fitur-section">
+            <div class="fitur-card">
+                <img src="../asset/icon_business_transactions.png" class="fitur-icon" alt="Transaksi Icon"/>
+                <div class="fitur-content">
+                <div class="fitur-header">
+                    <h3>Transaksi Bisnis</h3>
+                </div>
+                <p class="fitur-deskripsi">Kegiatan keuangan yang terjadi dalam perusahaan dan menjadi dasar pencatatan dalam proses akuntansi.</p>
+                </div>
+            </div>
+        
+            <div class="fitur-card">
+                <img src="../asset/icon_general_ledger.png" class="fitur-icon" alt="Jurnal Icon" />
+                <div class="fitur-content">
+                <div class="fitur-header">
+                    <h3>Jurnal Umum</h3>
+                </div>
+                <p class="fitur-deskripsi">Tempat pertama kali transaksi keuangan dicatat secara kronologis sebelum diposting ke buku besar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dataUsaha = [
+            { id: 1, nama: "PT BISNIS DIGITAL" },
+            { id: 2, nama: "PT TEMBAKAU PUTIH" },
+            { id: 3, nama: "PT VELG MERBABU" },
+        ];
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const usahaList = document.getElementById("usaha-list");
+            dataUsaha.forEach(usaha => {
+                const usahaItem = document.createElement("div");
+                usahaItem.classList.add("usaha-item");
+                usahaItem.innerHTML = `
+                <div id="usaha-nama">${usaha.nama}</div>
+                <div id="usaha-aksi">
+                    <a class="btn-transaksi" href="detail_transaksi.html?id_usaha=${usaha.id}">Lihat Transaksi</a>
+                    <a class="btn-jurnal" href="detail_jurnal.html?id_usaha=${usaha.id}">Lihat Jurnal</a>
+                </div>
+                `;
+                usahaList.appendChild(usahaItem);
+            });
+        });
+    </script>
+</body>
+</html>

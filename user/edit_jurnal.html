@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Edit Jurnal Umum</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+</head>
+<body id="business-page">
+    <div class="form-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2">
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content" id="form-transaksi">
+            <div class="formulir-usaha">
+                <h3 id="title-1">Formulir Ubah Jurnal Umum Tahun 2024</h3>
+                <h5>PT Bisnis Digital</h5>
+                <form id="generalForm">
+                    <div id="form-content"></div>
+                    <input type="submit" id="submitBtn" value="Tahun Selanjutnya">
+                </form>    
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const daftarAkun = [
+            { nama: "Kas", ref: 101 },
+            { nama: "Piutang Usaha", ref: 102 },
+            { nama: "Persediaan Barang", ref: 103 },
+            { nama: "Peralatan", ref: 104 },
+            { nama: "Utang Usaha", ref: 201 },
+            { nama: "Modal", ref: 301 },
+            { nama: "Pendapatan Penjualan", ref: 401 },
+            { nama: "Beban Gaji", ref: 501 },
+            { nama: "Beban Listrik", ref: 502 }
+        ];
+        
+        let tahap = 1;
+        const formContent = document.getElementById("form-content");
+        const title = document.getElementById("title-1");
+        const form = document.getElementById("generalForm");
+        const submitBtn = document.getElementById("submitBtn");
+        
+        function generateRow(tanggal) {
+            return `
+                <tr>
+                    <td class='date-general' rowspan="2">${tanggal}</td>
+                    <td class='account-name'><input type="text" class="nama-akun" value="Kas" placeholder="Isi Akun/Ket" list="akunList" required></td>
+                    <td class='ref-number'><input type="number" class="ref-akun" value="101" placeholder="Auto Ref" required></td>
+                    <td class='debit-sum'><input type="number" class="debit" value="300000" placeholder="Isi Nominal Debit (Rp)"></td>
+                    <td class='kredit-sum'><input type="number" class="kredit" value="" placeholder="Isi Nominal Kredit (Rp)"></td>
+                </tr>
+                <tr>
+                    <td class='account-name'><input type="text" class="nama-akun" value="Piutang Usaha" placeholder="Isi Akun/Ket" list="akunList" required></td>
+                    <td class='ref-number'><input type="number" class="ref-akun" value="102" placeholder="Auto Ref" required></td>
+                    <td class='debit-sum'><input type="number" class="debit" value="" placeholder="Isi Nominal Debit (Rp)"></td>
+                    <td class='kredit-sum'><input type="number" class="kredit" value="300000" placeholder="Isi Nominal Kredit (Rp)"></td>
+                </tr>
+            `;
+        }
+        
+        function generateMonthBlock(judulBulan, tanggalList) {
+            const rows = tanggalList.map(tgl => generateRow(tgl)).join('');
+            return `
+                <h4><i class="fa-solid fa-calendar-week"></i> ${judulBulan}</h4>
+                <table>
+                    <tr id="title-table">
+                        <td>Tanggal</td>
+                        <td>Akun/Ket</td>
+                        <td>Ref</td>
+                        <td>Debit</td>
+                        <td>Kredit</td>
+                    </tr>
+                    ${rows}
+                </table><br>
+            `;
+        }
+        
+        function renderJurnal(tahap) {
+            formContent.innerHTML = "";
+            let html = "";
+        
+            if (tahap === 1) {
+                title.innerText = "Formulir Ubah Jurnal Umum Tahun 2024";
+                html += generateMonthBlock("Oktober 2024", ["1 Oktober", "15 Oktober"]);
+                html += generateMonthBlock("November 2024", ["7 November"]);
+                html += generateMonthBlock("Desember 2024", ["20 Desember"]);
+                submitBtn.value = "Tahun Selanjutnya";
+            } else {
+                title.innerText = "Formulir Ubah Jurnal Umum Tahun 2025";
+                html += generateMonthBlock("Januari 2025", ["1 Januari", "15 Januari"]);
+                html += generateMonthBlock("Februari 2025", ["7 Februari"]);
+                html += generateMonthBlock("Maret 2025", ["23 Maret"]);
+                submitBtn.value = "Simpan & Ke Beranda";
+            }
+        
+            formContent.innerHTML = html;
+            bindEvents();
+        }
+        
+        function bindEvents() {
+            document.querySelectorAll(".nama-akun").forEach(input => {
+                input.addEventListener("blur", function () {
+                    const value = this.value.trim().toLowerCase();
+                    const row = this.closest("tr");
+                    const refInput = row.querySelector(".ref-akun");
+                    const akun = daftarAkun.find(a => a.nama.toLowerCase() === value);
+                    if (akun) {
+                        refInput.value = akun.ref;
+                        refInput.setCustomValidity("");
+                    } else {
+                        refInput.value = "";
+                        refInput.setCustomValidity("Nama akun tidak valid!");
+                        refInput.reportValidity();
+                    }
+                });
+            });
+        
+            document.querySelectorAll(".debit").forEach(debit => {
+                debit.addEventListener("input", () => {
+                    const kredit = debit.closest("tr").querySelector(".kredit");
+                    if (debit.value) kredit.readOnly = true;
+                    else kredit.readOnly = false;
+                });
+            });
+        
+            document.querySelectorAll(".kredit").forEach(kredit => {
+                kredit.addEventListener("input", () => {
+                    const debit = kredit.closest("tr").querySelector(".debit");
+                    if (kredit.value) debit.readOnly = true;
+                    else debit.readOnly = false;
+                });
+            });
+        }
+        
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            let valid = true;
+            document.querySelectorAll(".nama-akun").forEach(input => {
+                const row = input.closest("tr");
+                const debit = row.querySelector(".debit")?.value;
+                const kredit = row.querySelector(".kredit")?.value;
+                if (input.value && !debit && !kredit) valid = false;
+            });
+            if (!valid) return alert("Setiap baris akun harus ada nilai Debit atau Kredit.");
+        
+            if (tahap === 1) {
+                tahap = 2;
+                renderJurnal(tahap);
+            } else {
+                alert("Data transaksi bisnis dan jurnal umum berhasil diubah!");
+                window.location.href = "beranda.html";
+            }
+        });
+        
+        // Autocomplete akun (datalist)
+        const datalist = document.createElement("datalist");
+        datalist.id = "akunList";
+        daftarAkun.forEach(a => {
+            const opt = document.createElement("option");
+            opt.value = a.nama;
+            datalist.appendChild(opt);
+        });
+        document.body.appendChild(datalist);
+        
+        // Inisialisasi tampilan awal
+        renderJurnal(tahap);
+    </script>        
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPOLMAN - Transaksi Bisnis</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="../asset/icon.png">
+
+    <!-- datatable css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.bootstrap5.css">
+</head>
+<body id="business-page">
+    <div class="beranda-container">
+        <div class="topbar">
+            <div class="logo-wrapper-2">
+                <img src="../asset/logo_polman.png" alt="Logo" class="logo-img-2">
+                <span class="logo-text">SISTEM INFORMASI AKUNTANSI</span>
+            </div>
+            <div class="nav-button-group">
+                <button class="nav-btn" id="profile"><i class="fa-solid fa-user"></i></button>
+                <a href="beranda.html"><button class="nav-btn">Beranda</button></a>
+                <a href="daftar_usaha.html"><button class="nav-btn">Daftar Usaha</button></a>
+                <a href="daftar_transaksi.html"><button class="nav-btn">Transaksi Bisnis</button></a>
+                <a href="daftar_jurnal.html"><button class="nav-btn">Jurnal Umum</button></a>
+                <a href="../index.html" onclick="return confirm('Apakah Anda yakin ingin keluar dari halaman ini?')"><button class="nav-btn" id="logout"><i class="fa-solid fa-right-from-bracket"></i></button></a>
+            </div>
+        </div>
+    
+        <div class="content">
+            <div class="table-business-section">
+                <div class="transaksi-container">
+                <div class="transaksi-left">
+                    <h2>Transaksi Bisnis</h2>
+                </div>
+                <div class="transaksi-right">
+                    <span class="nama-usaha" id="tampilan-nama-usaha">PT Bisnis Digital</span>
+                    <div class="tahun-navigation">
+                    <span class="fw-bold">Tahun</span>
+                    <span id="currentYearDisplay" class="fw-bold"></span>
+                    <button id="prevYear" class="btn btn-outline-primary btn-sm">Sebelumnya</button>
+                    <button id="nextYear" class="btn btn-outline-primary btn-sm">Berikutnya</button>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Kontainer tahun -->
+                <div id="transaksiPerTahunContainer"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.js"></script>
+  
+    <script>
+        // Simulasi data dummy dari server PHP/database
+        const dataTransaksi = {
+            2024: {
+            "November": [
+                {tanggal: "2024-11-02", keterangan: "Pembelian perlengkapan"},
+                {tanggal: "2024-11-15", keterangan: "Penjualan produk"}
+            ],
+            "Desember": [
+                {tanggal: "2024-12-10", keterangan: "Pembayaran listrik"}
+            ]
+            },
+            2025: {
+            "Januari": [
+                {tanggal: "2025-01-01", keterangan: "Gaji karyawan"},
+                {tanggal: "2025-01-22", keterangan: "Penjualan tambahan"}
+            ],
+            "Februari": [
+                {tanggal: "2025-02-07", keterangan: "Pembelian bahan baku"}
+            ]
+            }
+        };
+    
+        const bulanIndo = [
+            "", "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        ];
+    
+        const tahunList = Object.keys(dataTransaksi).sort();
+        let currentIndex = 0;
+    
+        function renderTahun(tahun) {
+            const container = document.getElementById("transaksiPerTahunContainer");
+            container.innerHTML = "";
+    
+            const bulanData = dataTransaksi[tahun];
+    
+            for (const bulan in bulanData) {
+            const bulanTransaksi = bulanData[bulan];
+    
+            const subjudul = document.createElement("div");
+            subjudul.classList.add("transaksi-subjudul", "mt-4");
+            subjudul.innerHTML = `<h5><i class="fa-solid fa-calendar-week"></i> ${bulan} ${tahun}</h5>`;
+            container.appendChild(subjudul);
+    
+            const table = document.createElement("table");
+            table.classList.add("table", "table-striped", "dataTablePerYear");
+            table.innerHTML = `
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Tanggal</th>
+                    <th>Keterangan</th>
+                </tr>
+                </thead>
+                <tbody>
+                ${bulanTransaksi.map((t, idx) => `
+                <tr>
+                    <td>${idx + 1}.</td>
+                    <td>${formatTanggal(t.tanggal)}</td>
+                    <td>${t.keterangan}</td>
+                </tr>`).join("")}
+                </tbody>
+            `;
+            container.appendChild(table);
+    
+            new DataTable(table);
+            }
+    
+            document.getElementById("currentYearDisplay").textContent = tahun;
+            document.getElementById("prevYear").disabled = currentIndex === 0;
+            document.getElementById("nextYear").disabled = currentIndex === tahunList.length - 1;
+        }
+    
+        function formatTanggal(tglStr) {
+            const tgl = new Date(tglStr);
+            const hari = tgl.getDate();
+            const bulan = bulanIndo[tgl.getMonth() + 1] || "Bulan?";
+            return `${hari} ${bulan}`;
+        }
+    
+        document.getElementById("prevYear").addEventListener("click", () => {
+            if (currentIndex > 0) {
+            currentIndex--;
+            renderTahun(tahunList[currentIndex]);
+            }
+        });
+    
+        document.getElementById("nextYear").addEventListener("click", () => {
+            if (currentIndex < tahunList.length - 1) {
+            currentIndex++;
+            renderTahun(tahunList[currentIndex]);
+            }
+        });
+    
+        renderTahun(tahunList[currentIndex]);
+    </script>
+</body>
+</html>
